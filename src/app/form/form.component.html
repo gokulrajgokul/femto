@@ -17,13 +17,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="fw-bolder">Destination Warehouse</label>
-                        <input type="number" class="form-control mt-2">
+                        <input type="number" #warehouse class="form-control mt-2" (keydown.enter)="focusNext(driver)">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="fw-bolder">Driver Name</label>
-                        <input type="text" class="form-control mt-2">
+                        <input type="text" #driver class="form-control mt-2" (keydown.enter)="focusNext(vehicle)">
                     </div>
                 </div>
 
@@ -32,13 +32,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="fw-bolder">Vehicle No</label>
-                        <input type="text" class="form-control mt-2">
+                        <input type="text" #vehicle class="form-control mt-2" (keydown.enter)="focusNext(mobileno)">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="fw-bolder">DriverMobile No</label>
-                        <input type="text" class="form-control mt-2">
+                        <input type="text" #mobileno class="form-control mt-2" (keydown.enter)="focusNext(sealno)">
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 <div class="col offset-md-6">
                     <div class="form-group">
                         <label class="fw-bolder">Seal No</label>
-                        <input type="text" class="form-control mt-2" required>
+                        <input type="text" #sealno class="form-control mt-2" required>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
         <div class="container bg-white me-3 mt-3 p-3 rounded">
             <div class="row">
                 <div class="col offset-md-9">
-                    <input type="text" class="form-control" placeholder="search here...">
+                    <input type="text" class="form-control" placeholder="search here..." [(ngModel)]="searchText">
                 </div>
             </div>
             <div class="row">
@@ -97,9 +97,20 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <tr *ngFor="let row of filteredRows()">
+                            <td>{{ row.siNo }}</td>
+                            <td>{{ row.manifestNo }}</td>
+                            <td>{{ row.forwardingDate }}</td>
+                            <td>{{ row.destination }}</td>
+                            <td>{{ row.totalInvoice }}</td>
+                            <td>{{ row.totalCarton }}</td>
+                            <td>{{ row.totalWeight }}</td>
+                            <td>{{ row.mode }}</td>
+                            <td>{{ row.forwardBy }}</td>
+                            <td>{{ row.sealNo }}</td>
+                            <td><button class="btn btn-sm btn-primary">View</button></td>
+                        </tr>
                     </tbody>
-
 
 
                 </table>
@@ -107,3 +118,4 @@
         </div>
 
     </div>
+</div>
