@@ -1,4 +1,5 @@
 <div class="container-fluid bg-light p-3">
+    <form [formGroup]="Forwarding">
     <div class="row p-3">
         <div class="col mt-4 fw-bolder fs-4">
             <p>Forwarding To Warehouse</p>
@@ -56,13 +57,14 @@
             <div class="d-flex gap-2 mt-3">
                 <button type="button" class="btn btn-warning">Stock</button>
                 <button type="submit" class="btn btn-primary">To Be Forwarded</button>
-                <button type="button" class="btn btn-danger offset-md-3">Reset</button>
+                <button type="button" class="btn btn-danger offset-md-3" (click)="resetForm()">Reset</button>
                 <button type="button" class="btn btn-secondary">Go To Forwarding</button>
                 <button type="button" class="btn btn-secondary">Export</button>
             </div>
 
 
         </div>
+    </form>
         <div class="container bg-white me-3 mt-3 p-3 rounded">
             <div class="row">
                 <div class="col offset-md-9">
