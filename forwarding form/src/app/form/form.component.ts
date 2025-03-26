@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {  FormGroup  } from '@angular/forms';
+// import {  FormGroup  } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -9,20 +9,49 @@ import {  FormGroup  } from '@angular/forms';
   imports: [CommonModule,FormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
-})
-export class FormComponent {
+}) 
+export class FormComponent {  
  
   forwardingDate: string = '';
 
   constructor() {
     this.setCurrentDate();
   }
-
+  
   setCurrentDate() {
-    const today = new Date();
-    this.forwardingDate = today.toISOString().split('T')[0];
+    setTimeout(() => {
+      const today = new Date();
+      this.forwardingDate = today.toISOString().split('T')[0];
+    });
   }
+  
+  
+  // setCurrentDate() {
+  //   const today = new Date();
+  //   this.forwardingDate = today.toISOString().split('T')[0];
+  // }
 
+
+
+
+  // forwardingDate: string = '';
+
+  // constructor() {
+  //   this.setCurrentDate();
+  // }
+
+  // setCurrentDate() {
+  //   const today = new Date();
+  //   today.setMinutes(today.getMinutes() - today.getTimezoneOffset()); // Adjust for timezone
+  //   this.forwardingDate = today.toISOString().split('T')[0];  
+  // }
+  // setCurrentDate() {
+  //   setTimeout(() => {
+  //     const today = new Date();
+  //     today.setMinutes(today.getMinutes() - today.getTimezoneOffset()); // Adjust for timezone
+  //     this.forwardingDate = today.toISOString().split('T')[0];  
+  //   });
+  // }
 
 
   focusNext(nextElement: HTMLInputElement) {
